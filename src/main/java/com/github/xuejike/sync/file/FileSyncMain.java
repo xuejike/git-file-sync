@@ -18,13 +18,13 @@ import java.util.List;
 @Slf4j
 public class FileSyncMain {
     public static void main(String[] args) {
-
-
-
-        Setting setting = new Setting(new File("sync.conf"), StandardCharsets.UTF_8,false);
+        File configFile  =new File("sync.conf");
+        if (args.length >0){
+            configFile = new File(args[0]);
+        }
+        Setting setting = new Setting(configFile, StandardCharsets.UTF_8,false);
         List<String> groups = setting.getGroups();
         for (String group : groups) {
-
             log.info("加载分组:{}",group);
             SyncConfig syncConfig = SyncConfig.parse(setting,group);
             FileSync fileSync = new FileSync(syncConfig);

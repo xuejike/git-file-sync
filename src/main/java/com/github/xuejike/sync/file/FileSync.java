@@ -122,7 +122,7 @@ public class FileSync {
         try {
             checkAndDelete();
             Map<String, DiffEntry.ChangeType> diff = getDiff();
-            log.info("[{检查}]");
+            log.info("[{}]-检查差异",config.getGroup());
             if (diff.size() > 0){
                 AddCommand add = git.add();
                 diff.keySet().forEach(add::addFilepattern);
