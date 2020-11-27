@@ -13,5 +13,4 @@ git.commit-time = 1
 git.sync-time = 10
 sync.folder = D://文档
 
-sync.ignore = /**/.~*
 ```
